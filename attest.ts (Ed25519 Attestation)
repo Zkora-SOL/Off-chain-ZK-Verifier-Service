@@ -1,0 +1,12 @@
+import nacl from "tweetnacl";
+import fs from "fs";
+
+
+const keypair = nacl.sign.keyPair.fromSecretKey(
+fs.readFileSync("keys/attester.key")
+);
+
+
+export function signAttestation(message: Uint8Array) {
+return nacl.sign.detached(message, keypair.secretKey);
+}
