@@ -1,0 +1,10 @@
+Project Structure
+verifier-service/
+├─ src/
+│ ├─ index.ts # HTTP server
+│ ├─ verify.ts # ZK proof verification
+│ ├─ attest.ts # Ed25519 signing
+│ └─ types.ts
+├─ keys/
+│ └─ attester.key
+└─ package.json
