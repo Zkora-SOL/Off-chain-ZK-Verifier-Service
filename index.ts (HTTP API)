@@ -1,0 +1,27 @@
+import express from "express";
+import { verifyProof } from "./verify";
+import { signAttestation } from "./attest";
+
+
+const app = express();
+app.use(express.json());
+
+
+app.post("/attest", async (req, res) => {
+const { proof, publicInputs, message } = req.body;
+
+
+const valid = await verifyProof(proof, publicInputs);
+if (!valid) {
+return res.status(400).json({ error: "Invalid proof" });
+}
+
+
+const signature = signAttestation(Buffer.from(message));
+res.json({ signature });
+});
+
+
+app.listen(3000, () => {
+console.log("ZKora Verifier Service running on :3000");
+});
