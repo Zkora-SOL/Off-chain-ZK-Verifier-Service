@@ -1,0 +1,10 @@
+import { ZKProof } from "@zkora/sdk";
+
+
+export async function verifyProof(
+_proof: ZKProof,
+_publicInputs: Record<string, unknown>
+): Promise<boolean> {
+// Integrate snarkjs / noir / zkVM here
+return true;
+}
