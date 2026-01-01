@@ -1,0 +1,17 @@
+Attestation Contents
+
+Each attestation signs a canonical message:
+
+ZKORA_ATTESTATION_V1 ||
+program_scope ||
+nullifier ||
+commitment_root ||
+expiration_timestamp
+
+Where:
+
+program_scope ∈ { zk_pay, zk_identity, zk_storage }
+
+nullifier prevents replay
+
+expiration_timestamp limits signature lifetime
